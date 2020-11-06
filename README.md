@@ -26,27 +26,115 @@ standards which this proposal will replace or with which it will
 compete, please explain why the present proposal is a substantial
 improvement.
 
-## Survey of prior art
-
-GitHub's version of Markdown can make tables. For example:
-
-| System        | Procedure | Signature                 |
-| ------------- |:---------:| ------------------------- |
-| System A      | `jumble`  | _list_ _elem_             |
-| System B      | `bungle`  | _elem_ _list_             |
-| System C      | `frob`    | _list_ _elem_ _predicate_ |
-
 # Specification
 
-??? detailed specification. This should be detailed enough that a
-conforming implementation could be completely created from this
-description.
+## Read binary
+
+### Read one byte
+
+6: (`get-u8` _port_)
+
+7: (`read-u8` [_port_])
+
+### Read some bytes
+
+6: (`get-bytevector-some` _port_)
+
+7: N/A
+
+### Read all bytes
+
+6: (`get-bytevector-all` _port_)
+
+7: N/A
+
+### Read up to n bytes
+
+6: (`get-bytevector-n` _port_ _count_)
+
+7: (`read-bytevector` _count_ [_port_])
+
+### Read up to n bytes (destructive)
+
+6: (`get-bytevector-n!` _port_ _bytevector_ _start_ _count_)
+
+7: (`read-bytevector!` _bytevector_ [_port_ _start_ end])
+
+## Read text
+
+### Read one char
+
+6: (`get-char` _port_)
+
+7: (`read-char` [_port_])
+
+### Read some chars
+
+6: N/A
+
+7: N/A
+
+### Read all chars
+
+6: (`get-string-all` _port_)
+
+7: N/A
+
+### Read up to n chars
+
+6: (`get-string-n` _port_ _count_)
+
+7: (`read-string` _count_ [_port_])
+
+### Read up to n chars (destructive)
+
+6: (`get-string-n!` _port_ _string_ _start_ _count_)
+
+7: N/A
+
+### Read one line of text
+
+6: (`get-line` _port_)
+
+7: (`read-line` [_port_])
+
+## Write binary
+
+### Write one byte
+
+6: (`put-u8` _port_ _byte_)
+
+7: (`write-u8` _byte_ [_port_])
+
+### Write exactly n bytes
+
+6: (`put-bytevector` _port_ _bytevector_ [_start_ _count_])
+
+7: (`write-bytevector` _bytevector_ [_port_ _start_ _end_])
+
+## Write text
+
+### Write one char
+
+6: (`put-char` _port_ _char_)
+
+7: (`write-char` _char_ [_port_])
+
+### Write exactly n chars
+
+6: (`put-string` _port_ _string_ [_start_ _count_])
+
+7: (`write-string` _string_ [_port_ _start_ _end_])
+
+### Write one line of text
+
+6: N/A
+
+7: N/A
 
 # Implementation
 
-??? explanation of how it meets the sample implementation requirement
-(see process), and the code, if possible, or a link to it Source for
-the sample implementation.
+Attached.
 
 # Acknowledgements
 
