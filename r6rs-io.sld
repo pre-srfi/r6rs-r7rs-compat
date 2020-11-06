@@ -16,7 +16,7 @@
     ;;;
 
     (define (get-u8 port)
-      #f)
+      (read-u8 port))
 
     (define (get-bytevector-n port count)
       (read-bytevector count port))
