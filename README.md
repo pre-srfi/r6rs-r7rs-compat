@@ -1,4 +1,4 @@
-# SRFI nnn: Title
+# SRFI nnn: R6RS-R7RS compatibility libraries
 
 by Firstname Lastname, Another Person, Third Person
 
@@ -8,25 +8,44 @@ Early Draft
 
 # Abstract
 
-??? abstract, preferably shorter than 200 words. Please outline the
-need for, and design of, the proposal.
+The R6RS and R7RS standard libraries have a few discrepancies in
+naming and argument lists for similar procedures. This SRFI supplies a
+R6RS shim for R7RS, and a R7RS shim for R6RS, so that portable code
+may be written.
 
 # Issues
 
-??? Optional section that may point out things to be resolved. This
-will not appear in the final SRFI.
-
 # Rationale
 
-??? detailed rationale. This should be 200-500 words long. Please
-explain why the proposal should be incorporated as a standard feature
-in Scheme implementations. List related standards and SRFIs, including
-dependencies, conflicts, and replacements. If there are other
-standards which this proposal will replace or with which it will
-compete, please explain why the present proposal is a substantial
-improvement.
+## Issues that cannot be resolved by a library
+
+### Vector literals
+
+R6RS has no read syntax for vector literals. The R7RS read syntax is
+`#(...)` as in Common Lisp. Both have R6RS and R7RS have a standard
+procedure `(vector ...)` to make a vector containing the given
+elements.
+
+### Bytevector literals
+
+The read syntax for bytevector literals is `#vu(...)` in R6RS and
+`#u8(...)` in R7RS. R7RS has a standard procedure `(bytevector ...)`
+to make a bytevector containing the given elements.
+
+### Raised by who
+
+The R6RS `error` procedure takes a _who_ argument that optionally says
+which bit of code the error came from. If _who_ is supplied and not
+`#f`, a compound condition is created where `&who` is one of the
+simple conditions. R7RS errors have no equivalent.
 
 # Specification
+
+## Make a bytevector
+
+6: N/A
+
+7: (`bytevector` ...)
 
 ## Read binary
 
