@@ -1,0 +1,14 @@
+#!r6rs ; -*- mode: scheme; coding: utf-8 -*-
+(import (akku format manifest))
+
+(akku-package ("akku-r7rs" "1.0.1")
+  (synopsis "R7RS standard library for Akku.scm")
+  (description
+   "Akku.scm has the ability to convert R7RS define-library forms to R6RS library forms. This package provides the R7RS standard library for use with such converted libraries."
+   "Chez or Guile is required for full support."
+   "Akku.scm 0.3.0 or later is required. When used with Akku 1.0.0 or later it does not conflict with the built-in support in Larceny and Sagittarius.")
+  (authors "Göran Weinholt <goran@weinholt.se>"
+           "okuoku")
+  (license "CC0-1.0")
+  (depends ("chez-srfi" "^0.0.0-akku") ("laesare" "^1.0.0-alpha.1"))
+)
