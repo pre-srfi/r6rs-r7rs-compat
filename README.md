@@ -21,10 +21,14 @@ may be written.
 
 ### Vector literals
 
-R6RS has no read syntax for vector literals. The R7RS read syntax is
-`#(...)` as in Common Lisp. Both have R6RS and R7RS have a standard
-procedure `(vector ...)` to make a vector containing the given
-elements.
+R6RS vector literals need to be quoted: `'#(1 2 3)` is valid whereas
+`#(1 2 3)` is a syntax error.
+
+R7RS vector literals are self-quoting: `'#(1 2 3)` and `#(1 2 3)` are
+equivalent.
+
+Both have R6RS and R7RS have a standard procedure `(vector ...)` to
+make a vector containing the given elements.
 
 ### Bytevector literals
 
