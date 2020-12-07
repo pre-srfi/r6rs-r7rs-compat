@@ -33,8 +33,12 @@ make a vector containing the given elements.
 ### Bytevector literals
 
 The read syntax for bytevector literals is `#vu(...)` in R6RS and
-`#u8(...)` in R7RS. R7RS has a standard procedure `(bytevector ...)`
-to make a bytevector containing the given elements.
+`#u8(...)` in R7RS.
+
+R7RS has a standard procedure `(bytevector ...)` to make a bytevector
+containing the given elements. R6RS does not have it, but the R6RS
+idiom `(u8-list->bytevector list-of-integers)` is equivalent to the
+R7RS idiom `(apply bytevector list-of-integers)`.
 
 ### Raised by who
 
